@@ -1,0 +1,27 @@
+server:
+  port: 8070
+
+#设置该服务注册中心的hostname
+eureka:
+  instance:
+    hostname: eureka8070
+  #目前创建的应用是一个服务注册中心，而不是普通的应用，默认情况下，这个应用会想注册中心(也就是自己)注册自己，
+  #设置为false表示禁止这种自己向自己注册的默认行为
+  client:
+    register-with-eureka: false
+    #表示不去检索其他的服务，因为服务注册中心本身的职责就是维护服务实例，它不需要去检索其他服务
+    fetch-registry: false
+    #指定服务注册中心的位置
+    service-url:
+      defaultZone: http://eureka8071:8071/eureka/
+  server:
+    #测试时关闭自我保护机制，保证不可用服务及时被踢出
+    enable-self-preservation: false
+
+
+# 安全认证的配置
+#spring:
+#  security:
+#    user:
+#      name: admin   #用户名
+#      password: admin123  #密码
