@@ -13,15 +13,15 @@ eureka:
     fetch-registry: false
     #指定服务注册中心的位置
     service-url:
-      defaultZone: http://eureka8071:8071/eureka/
+      defaultZone: http://admin:admin123@eureka8071:8071/eureka/
   server:
     #测试时关闭自我保护机制，保证不可用服务及时被踢出
     enable-self-preservation: false
 
 
-# 安全认证的配置
-#spring:
-#  security:
-#    user:
-#      name: admin   #用户名
-#      password: admin123  #密码
+# 安全认证的配置,不加安全认证的话服务注册就不需要加用户和密码
+spring:
+  security:
+    user:
+      name: admin   #用户名
+      password: admin123  #密码
